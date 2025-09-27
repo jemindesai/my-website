@@ -3,7 +3,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Layout */
 .container {
   display: flex;
   min-height: 100vh;
@@ -15,6 +14,12 @@ body {
   background: #333;
   color: #fff;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
 }
 
 .sidebar h2 {
@@ -41,8 +46,34 @@ body {
   font-weight: bold;
 }
 
-/* Content */
+/* Collapsed state */
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* Content area */
 .content {
   flex: 1;
+  margin-left: 220px;
   padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+.content.expanded {
+  margin-left: 0;
+}
+
+/* Toggle button */
+#toggleBtn {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#toggleBtn:hover {
+  background: #0056b3;
 }
